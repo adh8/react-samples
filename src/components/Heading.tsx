@@ -5,10 +5,11 @@ import { Slot } from '@radix-ui/react-slot';
 export interface HeadingProps {
 	size?: 'small' | 'medium' | 'large';
 	children: ReactNode;
-	asChild: boolean;
+	asChild?: boolean;
+	className?: string;
 }
 
-export function Heading({ size = 'medium', children, asChild }: HeadingProps) {
+export function Heading({ size = 'medium', children, asChild, className }: HeadingProps) {
 
 	const ComponentTag = asChild ? Slot : 'h2';
 
@@ -21,7 +22,8 @@ export function Heading({ size = 'medium', children, asChild }: HeadingProps) {
 					'text-lg': size === 'small',
 					'text-xl': size === 'medium',
 					'text-2xl': size === 'large',
-				}
+				},
+				className
 			)}
 		>
 			{children}
